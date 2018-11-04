@@ -43,14 +43,24 @@ class App extends Component {
     }
   }
 
+  getStoredCards = (dataFromChild) => {
+    this.setState({
+      storedCards: dataFromChild
+    })
+  }
 
+  handleState = (storedCards) => {
+    this.setState({
+      allCards: storedCards
+    })
+  }
   
   render() {
     return (
       <div className="app">
         <div className="top-right">
           <p className="account">Account</p>
-          <p className="study-hub">My Study Hub</p>
+          <button className="study-hub" onClick={() => this.handleState(this.state.storedCards)}>My Study Hub</button>
         </div>
         <header className="app-header">
           <h1>PROTO<span>MASTER</span></h1>
@@ -64,7 +74,8 @@ class App extends Component {
           <CardContainer allCards={this.state.allCards} 
                          count={this.state.counter}
                          switchQuestion={this.switchQuestion} 
-                         checkUserAnswer={this.checkUserAnswer} />
+                         checkUserAnswer={this.checkUserAnswer}
+                         getStoredCards={this.getStoredCards} />
           </section>  
         </div>
     </div>

@@ -50,9 +50,11 @@ export default class Card extends Component {
       storedCards = JSON.parse(localStorage.getItem('clickedCard'))
       storedCards.push(card)
       localStorage.setItem('clickedCard', JSON.stringify(storedCards))
+      this.props.getStoredCards(storedCards)
     } else {
       storedCards.push(card)
       localStorage.setItem('clickedCard', JSON.stringify(storedCards))
+      this.props.getStoredCards(storedCards)
     }
   }
 
