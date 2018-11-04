@@ -8,7 +8,8 @@ class App extends Component {
     super();
     this.state = {
       allCards: [],
-      counter: 0
+      counter: 0,
+      correctAnswer: false
     }
   }
 
@@ -44,7 +45,10 @@ class App extends Component {
   
   checkUserAnswer = (answer) => {
     if (answer === this.state.allCards[this.state.counter].correctAnswer) {
-      console.log('correct')
+      this.setState({
+        correctAnswer: true
+
+      })
     } else {
       console.log('incorrect')
     }
@@ -68,7 +72,8 @@ class App extends Component {
           <CardContainer allCards={this.state.allCards} 
                          count={this.state.counter}
                          switchQuestion={this.switchQuestion} 
-                         checkUserAnswer={this.checkUserAnswer}/>
+                         checkUserAnswer={this.checkUserAnswer}
+                         correctAnswer={this.state.correctAnswer}/>
           </section>  
         </div>
     </div>
