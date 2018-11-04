@@ -29,7 +29,11 @@ p {
   list-style-type: none;
 }
 
-
+.show-result {
+  font-size: 50px;
+  color: red;
+  margin: 30px 0 30px 0;
+}
 
 .submit-button, .next-button {
   height: 30px;
@@ -47,9 +51,6 @@ p {
   margin: 0 auto;
 }
 
-.next-button {
-  margin-left:200px;
-}
 
 .show {
   display: inline;
@@ -87,6 +88,7 @@ p {
   cursor: pointer;     
   margin-right: 5px;
   outline: none;
+  margin-top: 0;
 }
 
 .form-radio:checked::before {
