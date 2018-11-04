@@ -8,7 +8,8 @@ class App extends Component {
     super();
     this.state = {
       allCards: [],
-      counter: 0
+      counter: 0,
+      storedCards: []
     }
   }
 
@@ -32,22 +33,25 @@ class App extends Component {
 
   switchQuestion = (event) => {
     if (this.state.counter > 28) {
-    this.setState({
-      counter: this.state.counter = 0
-    })
-  } else {
-    this.setState({
-      counter: this.state.counter+=1  
-    })
+      this.setState({
+        counter: this.state.counter = 0
+      })
+    } else {
+      this.setState({
+        counter: this.state.counter+=1  
+      })
+    }
   }
-}
+
+
   
-
-
-
   render() {
     return (
       <div className="app">
+        <div className="top-right">
+          <p className="account">Account</p>
+          <p className="study-hub">My Study Hub</p>
+        </div>
         <header className="app-header">
           <h1>PROTO<span>MASTER</span></h1>
           <h2>become a <span className="pro">pro</span> at <span className="pro">proto</span>types</h2>

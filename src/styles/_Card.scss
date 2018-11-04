@@ -9,6 +9,7 @@
   border-radius: 15px;
   padding: 20px;
   margin-bottom: 80px;
+  position: relative;
 }
 
 p {
@@ -71,6 +72,9 @@ p {
 
 }
 
+ul {
+  text-align: left;
+}
 
 .form-radio {
   -webkit-appearance: none;
@@ -107,3 +111,49 @@ p {
 .form-radio:checked{
   background-color: #f1f1f1;
 }
+
+
+/*[data-tooltip] {
+  font-size: 23px;
+  opacity: 1;
+  position: relative;
+  z-index: 2;
+
+
+  &:after {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &:before {
+    @extend :after;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    background-color: #fff;
+    border-radius: 3px;
+    bottom: 50%;
+    color: hsla(0, 0%, 20%, 0.9);
+    content: attr(data-tooltip);
+    font-size: 14px;
+    font-weight: 700;
+    height: 13px;
+    left: 50%;
+    line-height: 1.2;
+    padding: 3px 3px 10px;
+    position: absolute;
+    text-align: center;
+    width: 100px;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    font-size: 9px;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+[data-tooltip]:before {
+  margin-left: -5px;
+}*/
