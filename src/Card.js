@@ -5,7 +5,8 @@ export default class Card extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedAnswer: ''
+      selectedAnswer: '',
+      clickedSubmit: false 
     }
 
   }
@@ -19,8 +20,22 @@ export default class Card extends Component {
 
   }
 
+  submitAnswer = () => {
+    this.props.checkUserAnswer(this.state.selectedAnswer)
+    this.setState({
+      clickedSubmit: true
+    })
+  }
+
   render() { 
-    console.log(this.props)
+
+    const {correctAnswer} = this.props
+    const showResult = correctAnswer
+      ? 'Correct!' 
+      : 'Incorrect!'
+
+    console.log(showResult, this.state.clickedSubmit)
+
   return (
     <div className="card-wrapper">
       <i class="fas fa-plus"></i>
@@ -30,13 +45,17 @@ export default class Card extends Component {
         <div className="answer-bank">
           <ul className="card">{
             this.props.card.answers.map((answer) => {
-              return <li className="answer-choice"><input type="radio" name="answer" className="form-radio" label="form" value={answer} onClick={e => this.selectAnswer(e)}></input>{answer}</li>
+              return <li className="answer-choice"><input type="radio" name="answer" className="form-radio" label="form" value={answer} onClick={this.selectAnswer}></input>{answer}</li>
             })
           }
         </ul>
         </div>
         <div className="card-buttons">
-          <button className="submit-button" onClick={this.props.checkUserAnswer(this.state.selectedAnswer)}>Submit</button>
+          <button className="submit-button" onClick={this.submitAnswer}>Submit</button>
+          {
+            this.state.clickedSubmit &&
+            <p>{showResult}</p>
+          }
           <button className="next-button" onClick={this.props.switchQuestion}>Next Question</button>
         </div>  
     </div>
