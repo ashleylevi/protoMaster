@@ -31,13 +31,7 @@ class App extends Component {
 
 
   switchQuestion = (event) => {
-    // document.querySelector('.answer-bank').classList.add('show');
-    // document.querySelector('.submit-button').classList.add('show');
-    // document.querySelector('.next-button').classList.add('hide');
-    // document.querySelector('.show').classList.remove('next-button');
-   
     if (this.state.counter > 28) {
-    
     this.setState({
       counter: this.state.counter = 0
     })
