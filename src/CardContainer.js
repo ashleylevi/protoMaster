@@ -25,8 +25,7 @@ export default class CardContainer extends Component {
 
             <Card card={this.props.allCards[this.props.count]}
                   switchQuestion={this.props.switchQuestion}
-                  checkUserAnswer={this.props.checkUserAnswer}
-                  correctAnswer={this.props.correctAnswer} /> 
+                  checkUserAnswer={this.props.checkUserAnswer} /> 
           
         
         </div>   

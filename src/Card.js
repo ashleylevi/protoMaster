@@ -6,7 +6,8 @@ export default class Card extends Component {
     super(props);
     this.state = {
       selectedAnswer: '',
-      clickedSubmit: false 
+      clickedSubmit: false,
+      correctAnswer: null
     }
 
   }
@@ -16,12 +17,32 @@ export default class Card extends Component {
     this.setState({
       selectedAnswer: answer
     }) 
+  }
 
+  resetState = () => {
+    this.props.switchQuestion()
+    this.setState({
+      clickedSubmit: false,
+      submitAnswer: '',
+      correctAnswer: null
+    }) 
+  }
 
+  checkUserAnswer = (answer) => {
+    if (answer === this.props.card.correctAnswer) {
+      this.setState({
+        correctAnswer: true
+
+      })
+    } 
   }
 
   submitAnswer = () => {
-    this.props.checkUserAnswer(this.state.selectedAnswer)
+    this.checkUserAnswer(this.state.selectedAnswer)
+    // document.querySelector('.answer-bank').classList.add('hide')
+    // document.querySelector('.submit-button').classList.add('hide')
+    // document.querySelector('.next-button').classList.add('show')
+    // document.querySelector('.show').classList.remove('next-button')
     this.setState({
       clickedSubmit: true
     })
@@ -29,13 +50,10 @@ export default class Card extends Component {
 
   render() { 
 
-    const {correctAnswer} = this.props
-    const showResult = correctAnswer
+    const showResult = this.state.correctAnswer
       ? 'Correct!' 
       : 'Incorrect!'
-
-    console.log(showResult, this.state.clickedSubmit)
-
+if (this.state.clickedSubmit === false) {
   return (
     <div className="card-wrapper">
       <i class="fas fa-plus"></i>
@@ -50,15 +68,31 @@ export default class Card extends Component {
           }
         </ul>
         </div>
-        <div className="card-buttons">
-          <button className="submit-button" onClick={this.submitAnswer}>Submit</button>
+        <div className="user-feedback">
           {
             this.state.clickedSubmit &&
             <p>{showResult}</p>
           }
-          <button className="next-button" onClick={this.props.switchQuestion}>Next Question</button>
+         </div>
+        <div className="card-buttons">
+          <button className="submit-button" onClick={this.submitAnswer}>Submit</button>
+          <button className="next-button" onClick={this.resetState}>Next Question</button>
         </div>  
     </div>
   );
+}
+
+  if (this.state.clickedSubmit === true) {
+    return(
+    <div className="user-feedback">
+          {
+            this.state.clickedSubmit &&
+            <p>{showResult}</p>
+          }
+         </div>
+)
+  }
+
+  
 }
 }
