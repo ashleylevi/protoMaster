@@ -64,7 +64,7 @@ export default class Card extends Component {
     if (this.state.clickedSubmit === false) {
       return (
         <div className="card-wrapper">
-          <i class="fas fa-plus" onClick={this.storeCard(this.props.card)}></i>
+          <i class="fas fa-plus" data-tooltip="Add this question to your study hub!" onClick={() => this.storeCard(this.props.card)}></i>
           <div className="question-wrapper">
             <h3>Question: {this.props.card.question}</h3>
           </div>
