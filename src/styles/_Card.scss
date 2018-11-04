@@ -29,6 +29,8 @@ p {
   list-style-type: none;
 }
 
+
+
 .submit-button, .next-button {
   height: 30px;
   background-color: #8FBA53;
@@ -42,11 +44,15 @@ p {
 }
 
 .submit-button {
-  margin-right: 200px;
+  margin: 0 auto;
 }
 
 .next-button {
   margin-left:200px;
+}
+
+.show {
+  display: inline;
 }
 
 .submit-button:hover, .next-button:hover {

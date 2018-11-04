@@ -8,8 +8,7 @@ class App extends Component {
     super();
     this.state = {
       allCards: [],
-      counter: 0,
-      correctAnswer: false
+      counter: 0
     }
   }
 
@@ -30,7 +29,13 @@ class App extends Component {
     document.querySelector('.start-button').classList.add('hide');
   }
 
+
   switchQuestion = (event) => {
+    // document.querySelector('.answer-bank').classList.add('show');
+    // document.querySelector('.submit-button').classList.add('show');
+    // document.querySelector('.next-button').classList.add('hide');
+    // document.querySelector('.show').classList.remove('next-button');
+   
     if (this.state.counter > 28) {
     
     this.setState({
@@ -43,18 +48,7 @@ class App extends Component {
   }
 }
   
-  checkUserAnswer = (answer) => {
-    if (answer === this.state.allCards[this.state.counter].correctAnswer) {
-      this.setState({
-        correctAnswer: true
 
-      })
-    } else {
-      console.log('incorrect')
-    }
-
-
-  }
 
 
   render() {
@@ -72,8 +66,7 @@ class App extends Component {
           <CardContainer allCards={this.state.allCards} 
                          count={this.state.counter}
                          switchQuestion={this.switchQuestion} 
-                         checkUserAnswer={this.checkUserAnswer}
-                         correctAnswer={this.state.correctAnswer}/>
+                         checkUserAnswer={this.checkUserAnswer} />
           </section>  
         </div>
     </div>
