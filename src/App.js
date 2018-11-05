@@ -9,7 +9,8 @@ class App extends Component {
     this.state = {
       allCards: [],
       counter: 0,
-      storedCards: []
+      lookAtStoredCards: false,
+      storedCardIds: []
     }
   }
 
@@ -44,13 +45,22 @@ class App extends Component {
   }
 
 
+  handleState = (storedCards) => {
+    console.log('hi')
+    var storedCards = JSON.parse(localStorage.getItem('clickedCard'))
+    this.setState({
+      lookAtStoredCards: !this.state.lookAtStoredCards,
+      storedCardIds: storedCards
+    })
+  }
   
   render() {
-    return (
-      <div className="app">
+    if (this.state.lookAtStoredCards === true) {
+      return (
+        <div className="app">
         <div className="top-right">
           <p className="account">Account</p>
-          <p className="study-hub">My Study Hub</p>
+          <button className="study-hub" onClick={() => this.handleState()}>HOME</button>
         </div>
         <header className="app-header">
           <h1>PROTO<span>MASTER</span></h1>
@@ -64,7 +74,37 @@ class App extends Component {
           <CardContainer allCards={this.state.allCards} 
                          count={this.state.counter}
                          switchQuestion={this.switchQuestion} 
-                         checkUserAnswer={this.checkUserAnswer} />
+                         checkUserAnswer={this.checkUserAnswer}
+                         lookAtStoredCards={this.state.lookAtStoredCards}
+                         storedCardIds={this.state.storedCardIds} />
+          </section>  
+        </div>
+    </div>
+    )
+  }
+        
+    
+    return (
+      <div className="app">
+        <div className="top-right">
+          <p className="account">Account</p>
+          <button className="study-hub" onClick={() => this.handleState()}>My Study Hub</button>
+        </div>
+        <header className="app-header">
+          <h1>PROTO<span>MASTER</span></h1>
+          <h2>become a <span className="pro">pro</span> at <span className="pro">proto</span>types</h2>
+        </header>
+        <div className="start">
+          <button className="start-button" onClick={this.displayPage}>Start Studying!</button>
+        </div>
+        <div className="main-card">
+          <section className="cards">
+          <CardContainer allCards={this.state.allCards} 
+                         count={this.state.counter}
+                         switchQuestion={this.switchQuestion} 
+                         checkUserAnswer={this.checkUserAnswer}
+                         lookAtStoredCards={this.state.lookAtStoredCards}
+                         storedCardIds={this.state.storedCardIds} />
           </section>  
         </div>
     </div>
