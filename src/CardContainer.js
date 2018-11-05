@@ -54,7 +54,8 @@ export default class CardContainer extends Component {
                               key={card.id}
                               switchQuestion={this.props.switchQuestion}
                               checkUserAnswer={this.props.checkUserAnswer}
-                              getStoredCards={this.getStoredCards} /> 
+                              getStoredCards={this.getStoredCards}
+                              lookAtStoredCards={this.props.lookAtStoredCards} /> 
               })
                 
             }

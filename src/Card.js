@@ -58,15 +58,29 @@ export default class Card extends Component {
     }
   }
 
+  removeCard = (card) => {
+    console.log('hi')
+    let storedCards = JSON.parse(localStorage.getItem('clickedCard')
+      console.log(storedCards)
+    // localStorage.removeItem(card)
+  
+
+
+  }
+
   render() { 
     const showResult = this.state.correctAnswer
       ? 'Correct!' 
       : 'Incorrect!'
 
+    let plusMinusButton = <a className="plus" data-tooltip="Add this question to your study hub!"><i class="fas fa-plus" onClick={() => this.storeCard(this.props.card.id)}></i></a>
+    if (this.props.lookAtStoredCards === true) {
+      plusMinusButton = <a className="minus" data-tooltip="Remove this question from your study hub!"><i class="fas fa-minus" onClick={() => this.removeCard(this.props.card.id)}></i></a>
+    }
+
     if (this.state.clickedSubmit === false) {
       return (
         <div className="card-wrapper">
-          <a className="plus" data-tooltip="Add this question to your study hub!"><i class="fas fa-plus" onClick={() => this.storeCard(this.props.card.id)}></i></a>
           <div className="question-wrapper">
             <h3>Question: {this.props.card.question}</h3>
           </div>
@@ -94,7 +108,9 @@ export default class Card extends Component {
   if (this.state.clickedSubmit === true) {
     return (
       <div className="card-wrapper">
-        <a className="plus" data-tooltip="Add this question to your study hub!"><i class="fas fa-plus" onClick={() => this.storeCard(this.props.card)}></i></a>
+        {
+        plusMinusButton
+        }
       <div className="question-wrapper">
         <h3>Question: {this.props.card.question}</h3>
       </div>
@@ -110,5 +126,22 @@ export default class Card extends Component {
     </div>
     )
   }
+
+  //   if (this.props.lookAtStoredCards === true) {
+  //   return (
+  //     <div className="card-wrapper">
+  //       <a className="minus" data-tooltip="Add this question to your study hub!"><i class="fas fa-minus" onClick={() => this.storeCard(this.props.card.id)}></i></a>
+  //     <div className="question-wrapper">
+  //       <h3>Question: {this.props.card.question}</h3>
+  //     </div>
+  //     <div className="user-feedback">
+  //       {
+  //         this.state.clickedSubmit &&
+  //          <p className="show-result">{showResult}</p>
+  //       }
+  //     </div>
+  //   </div>
+  //   )
+  // }
   }
-  }
+}
