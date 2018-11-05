@@ -9,7 +9,8 @@ class App extends Component {
     this.state = {
       allCards: [],
       counter: 0,
-      storedCards: []
+      lookAtStoredCards: false,
+      storedCardIds: []
     }
   }
 
@@ -43,15 +44,13 @@ class App extends Component {
     }
   }
 
-  getStoredCards = (dataFromChild) => {
-    this.setState({
-      storedCards: dataFromChild
-    })
-  }
 
   handleState = (storedCards) => {
+    console.log('hi')
+    var storedCards = JSON.parse(localStorage.getItem('clickedCard'))
     this.setState({
-      allCards: storedCards
+      lookAtStoredCards: true,
+      storedCardIds: storedCards
     })
   }
   
@@ -60,7 +59,7 @@ class App extends Component {
       <div className="app">
         <div className="top-right">
           <p className="account">Account</p>
-          <button className="study-hub" onClick={() => this.handleState(this.state.storedCards)}>My Study Hub</button>
+          <button className="study-hub" onClick={() => this.handleState()}>My Study Hub</button>
         </div>
         <header className="app-header">
           <h1>PROTO<span>MASTER</span></h1>
@@ -75,7 +74,8 @@ class App extends Component {
                          count={this.state.counter}
                          switchQuestion={this.switchQuestion} 
                          checkUserAnswer={this.checkUserAnswer}
-                         getStoredCards={this.getStoredCards} />
+                         lookAtStoredCards={this.state.lookAtStoredCards}
+                         storedCardIds={this.state.storedCardIds} />
           </section>  
         </div>
     </div>
