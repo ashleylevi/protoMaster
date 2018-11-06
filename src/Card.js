@@ -44,6 +44,7 @@ export default class Card extends Component {
   };
 
   storeCard = card => {
+    document.querySelector('.card-wrapper').classList.add('add-animation')
     console.log("clicked card:", card);
     let storedCards = [];
     if (JSON.parse(localStorage.getItem("clickedCard"))) {
@@ -71,10 +72,10 @@ export default class Card extends Component {
     });
 
     localStorage.setItem("clickedCard", JSON.stringify(nullFreeArray));
-    this.props.getStoredCards(cardsFromStorage);
-    this.props.removeFromPage(nullFreeArray)
+    this.props.removeCardFromPage(nullFreeArray)
+    document.querySelector('.card-wrapper').classList.add('add-animation')
   };
-  
+
 
   render() {
     const showResult = this.state.correctAnswer ? "Correct!" : "Incorrect!";
@@ -82,21 +83,15 @@ export default class Card extends Component {
     let plusMinusButton = (
       <a className="plus" data-tooltip="Add this question to your study hub!">
         <i
-          class="fas fa-plus"
-          onClick={() => this.storeCard(this.props.card.id)}
+          class="fas fa-plus" onClick={() => this.storeCard(this.props.card.id)}
         />
       </a>
     );
+
     if (this.props.lookAtStoredCards === true) {
       plusMinusButton = (
-        <a
-          className="minus"
-          data-tooltip="Remove this question from your study hub!"
-        >
-          <i
-            class="fas fa-minus"
-            onClick={() => this.removeCard(this.props.card.id)}
-          />
+        <a className="minus" data-tooltip="Remove this question from your study hub!">
+          <i class="fas fa-minus" onClick={() => this.removeCard(this.props.card.id)}/>
         </a>
       );
     }

@@ -104,7 +104,7 @@ class App extends Component {
                 checkUserAnswer={this.checkUserAnswer}
                 lookAtStoredCards={this.state.lookAtStoredCards}
                 storedCardIds={this.state.storedCardIds}
-                removeFromPage={this.removeCardFromPage}
+                removeCardFromPage={this.removeCardFromPage}
               />
             </section>
           </div>
