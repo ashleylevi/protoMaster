@@ -29,7 +29,8 @@ class App extends Component {
     document.querySelector(".start-button").classList.add("hide");
   };
 
-  switchQuestion = (event) => {
+
+  switchQuestion = event => {
     if (this.state.counter > 28) {
       this.setState({
         counter: (this.state.counter = 0)
@@ -41,7 +42,7 @@ class App extends Component {
     }
   };
 
-  storeCard = (storedCards) => {
+  storeCard = storedCards => {
     console.log("hi");
     var storedCards = JSON.parse(localStorage.getItem("clickedCard"));
     this.setState({
@@ -50,12 +51,11 @@ class App extends Component {
     });
   };
 
-  removeCardFromPage = (array) => {
+  removeCardFromPage = array => {
     this.setState({
       storedCardIds: array
-    })
-
-  }
+    });
+  };
 
   render() {
     if (this.state.lookAtStoredCards === true) {
@@ -83,15 +83,16 @@ class App extends Component {
             </button>
           </div>
           <div className="main-card">
-              <CardContainer
-                allCards={this.state.allCards}
-                count={this.state.counter}
-                switchQuestion={this.switchQuestion}
-                checkUserAnswer={this.checkUserAnswer}
-                lookAtStoredCards={this.state.lookAtStoredCards}
-                storedCardIds={this.state.storedCardIds}
-                removeCardFromPage={this.removeCardFromPage}
-              />
+          <p className="study-hub-title">MY STUDY QUESTIONS: <span className="num">{this.state.storedCardIds.length}</span></p>
+            <CardContainer
+              allCards={this.state.allCards}
+              count={this.state.counter}
+              switchQuestion={this.switchQuestion}
+              checkUserAnswer={this.checkUserAnswer}
+              lookAtStoredCards={this.state.lookAtStoredCards}
+              storedCardIds={this.state.storedCardIds}
+              removeCardFromPage={this.removeCardFromPage}
+            />
           </div>
         </div>
       );
@@ -121,14 +122,14 @@ class App extends Component {
           </button>
         </div>
         <div className="main-card">
-            <CardContainer
-              allCards={this.state.allCards}
-              count={this.state.counter}
-              switchQuestion={this.switchQuestion}
-              checkUserAnswer={this.checkUserAnswer}
-              lookAtStoredCards={this.state.lookAtStoredCards}
-              storedCardIds={this.state.storedCardIds}
-            />
+          <CardContainer
+            allCards={this.state.allCards}
+            count={this.state.counter}
+            switchQuestion={this.switchQuestion}
+            checkUserAnswer={this.checkUserAnswer}
+            lookAtStoredCards={this.state.lookAtStoredCards}
+            storedCardIds={this.state.storedCardIds}
+          />
         </div>
       </div>
     );
