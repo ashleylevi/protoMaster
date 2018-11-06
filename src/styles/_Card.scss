@@ -37,7 +37,7 @@ p {
   margin: 30px 0 30px 0;
 }
 
-.submit-button, .next-button {
+.submit-button, .next-button, .skip-button {
   height: 30px;
   background-color: #8FBA53;
   color: white;
@@ -53,12 +53,16 @@ p {
   margin: 20px 0 0 0
 }
 
+.skip-button {
+  margin-left: 10px;
+}
+
 
 .show {
   display: inline;
 }
 
-.submit-button:hover, .next-button:hover {
+.submit-button:hover, .next-button:hover, .skip-button:hover {
   filter: brightness(115%);
   /*background: rgba(0,0,0,0);
   color: #b6dc81;

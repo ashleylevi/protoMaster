@@ -43,6 +43,10 @@ export default class Card extends Component {
     });
   };
 
+  skipQuestion = () => {
+    this.props.switchQuestion();
+  }
+
   storeCard = card => {
     document.querySelector('.card-wrapper').classList.add('add-animation')
     console.log("clicked card:", card);
@@ -127,6 +131,9 @@ export default class Card extends Component {
           <div className="card-buttons">
             <button className="submit-button" onClick={this.submitAnswer}>
               Submit
+            </button>
+            <button className="skip-button" onClick={this.skipQuestion}>
+              Skip Question
             </button>
           </div>
         </div>
