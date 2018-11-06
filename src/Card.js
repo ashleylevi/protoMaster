@@ -82,14 +82,16 @@ export default class Card extends Component {
 
 
   render() {
-    const showResult = this.state.correctAnswer ? "Correct!" : "Incorrect!";
+    let showResult = this.state.correctAnswer ? "Correct!" : "Incorrect!";
 
     let plusMinusButton = (
       <a className="plus" data-tooltip="Add this question to your study hub!">
-        <i
-          class="fas fa-plus" onClick={() => this.storeCard(this.props.card.id)}
-        />
+        <i class="fas fa-plus" onClick={() => this.storeCard(this.props.card.id)}/>
       </a>
+    );
+
+    let skipQuestionButton = (
+      <button className="next-button" onClick={this.resetState}> Next Question</button>
     );
 
     if (this.props.lookAtStoredCards === true) {
@@ -97,7 +99,9 @@ export default class Card extends Component {
         <a className="minus" data-tooltip="Remove this question from your study hub!">
           <i class="fas fa-minus" onClick={() => this.removeCard(this.props.card.id)}/>
         </a>
-      );
+    );
+
+      skipQuestionButton = "";
     }
 
     if (this.state.clickedSubmit === false) {
@@ -132,9 +136,7 @@ export default class Card extends Component {
             <button className="submit-button" onClick={this.submitAnswer}>
               Submit
             </button>
-            <button className="skip-button" onClick={this.skipQuestion}>
-              Skip Question
-            </button>
+            {skipQuestionButton}
           </div>
         </div>
       );
@@ -153,9 +155,9 @@ export default class Card extends Component {
             )}
           </div>
           <div>
-            <button className="next-button" onClick={this.resetState}>
-              Next Question
-            </button>
+            // <button className="next-button" onClick={this.resetState}>
+            //   Next Question
+            // </button>
           </div>
         </div>
       );

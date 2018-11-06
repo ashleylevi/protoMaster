@@ -62,6 +62,10 @@ p {
   display: inline;
 }
 
+.hide {
+  display: none;
+}
+
 .submit-button:hover, .next-button:hover, .skip-button:hover {
   filter: brightness(115%);
   /*background: rgba(0,0,0,0);
