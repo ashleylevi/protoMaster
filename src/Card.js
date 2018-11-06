@@ -43,7 +43,12 @@ export default class Card extends Component {
     });
   };
 
+  skipQuestion = () => {
+    this.props.switchQuestion();
+  }
+
   storeCard = card => {
+    document.querySelector('.card-wrapper').classList.add('add-animation')
     console.log("clicked card:", card);
     let storedCards = [];
     if (JSON.parse(localStorage.getItem("clickedCard"))) {
@@ -71,34 +76,32 @@ export default class Card extends Component {
     });
 
     localStorage.setItem("clickedCard", JSON.stringify(nullFreeArray));
-    this.props.getStoredCards(cardsFromStorage);
-    this.props.removeFromPage(nullFreeArray)
+    this.props.removeCardFromPage(nullFreeArray)
+    document.querySelector('.card-wrapper').classList.add('add-animation')
   };
-  
+
 
   render() {
-    const showResult = this.state.correctAnswer ? "Correct!" : "Incorrect!";
+    let showResult = this.state.correctAnswer ? "Correct!" : "Incorrect!";
 
     let plusMinusButton = (
       <a className="plus" data-tooltip="Add this question to your study hub!">
-        <i
-          class="fas fa-plus"
-          onClick={() => this.storeCard(this.props.card.id)}
-        />
+        <i class="fas fa-plus" onClick={() => this.storeCard(this.props.card.id)}/>
       </a>
     );
+
+    let skipQuestionButton = (
+      <button className="next-button" onClick={this.resetState}> Next Question</button>
+    );
+
     if (this.props.lookAtStoredCards === true) {
       plusMinusButton = (
-        <a
-          className="minus"
-          data-tooltip="Remove this question from your study hub!"
-        >
-          <i
-            class="fas fa-minus"
-            onClick={() => this.removeCard(this.props.card.id)}
-          />
+        <a className="minus" data-tooltip="Remove this question from your study hub!">
+          <i class="fas fa-minus" onClick={() => this.removeCard(this.props.card.id)}/>
         </a>
-      );
+    );
+
+      skipQuestionButton = "";
     }
 
     if (this.state.clickedSubmit === false) {
@@ -133,6 +136,7 @@ export default class Card extends Component {
             <button className="submit-button" onClick={this.submitAnswer}>
               Submit
             </button>
+            {skipQuestionButton}
           </div>
         </div>
       );
@@ -151,9 +155,9 @@ export default class Card extends Component {
             )}
           </div>
           <div>
-            <button className="next-button" onClick={this.resetState}>
-              Next Question
-            </button>
+            // <button className="next-button" onClick={this.resetState}>
+            //   Next Question
+            // </button>
           </div>
         </div>
       );

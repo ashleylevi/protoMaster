@@ -62,7 +62,7 @@ export default class CardContainer extends Component {
                     getStoredCards={this.getStoredCards}
                     lookAtStoredCards={this.props.lookAtStoredCards}
                     removeCard={this.props.removeCard}
-                    removeFromPage={this.props.removeCardFromPage}
+                    removeCardFromPage={this.props.removeCardFromPage}
                   />
                 );
               })}
