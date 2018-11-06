@@ -171,5 +171,7 @@ Card.propTypes = {
   switchQuestion: PropTypes.func.isRequired,
   checkUserAnswer: PropTypes.func.isRequired,
   getStoredCards: PropTypes.func.isRequired,
-  lookAtStoredCards: PropTypes.func.isRequired
+  lookAtStoredCards: PropTypes.func.isRequired,
+  removeCard: PropTypes.func.isRequired,
+  removeCardFromPage: PropTypes.func.isRequired
 };
