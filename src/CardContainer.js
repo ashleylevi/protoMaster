@@ -43,8 +43,8 @@ export default class CardContainer extends Component {
 
     if (this.props.lookAtStoredCards === true) {
       return (
-        <ul>
-          <li className="stored-cards">
+        <div>
+          <div className="stored-cards">
             {this.props.storedCardIds
               .map(id => {
                 return this.props.allCards.filter(card => {
@@ -66,8 +66,8 @@ export default class CardContainer extends Component {
                   />
                 );
               })}
-          </li>
-        </ul>
+          </div>
+        </div>
       );
     }
   }
