@@ -72,7 +72,9 @@ export default class Card extends Component {
 
     localStorage.setItem("clickedCard", JSON.stringify(nullFreeArray));
     this.props.getStoredCards(cardsFromStorage);
+    this.props.removeFromPage(nullFreeArray)
   };
+  
 
   render() {
     const showResult = this.state.correctAnswer ? "Correct!" : "Incorrect!";

@@ -29,7 +29,7 @@ class App extends Component {
     document.querySelector(".start-button").classList.add("hide");
   };
 
-  switchQuestion = event => {
+  switchQuestion = (event) => {
     if (this.state.counter > 28) {
       this.setState({
         counter: (this.state.counter = 0)
@@ -41,7 +41,7 @@ class App extends Component {
     }
   };
 
-  handleState = storedCards => {
+  storeCard = (storedCards) => {
     console.log("hi");
     var storedCards = JSON.parse(localStorage.getItem("clickedCard"));
     this.setState({
@@ -49,6 +49,13 @@ class App extends Component {
       storedCardIds: storedCards
     });
   };
+
+  removeCardFromPage = (array) => {
+    this.setState({
+      storedCardIds: array
+    })
+
+  }
 
 
     // let index = cardsFromStorage.indexOf(card);
@@ -68,8 +75,7 @@ class App extends Component {
       return (
         <div className="app">
           <div className="top-right">
-            <p className="account">Account</p>
-            <button className="study-hub" onClick={() => this.handleState()}>
+            <button className="study-hub" onClick={() => this.storeCard()}>
               HOME
             </button>
           </div>
@@ -98,6 +104,7 @@ class App extends Component {
                 checkUserAnswer={this.checkUserAnswer}
                 lookAtStoredCards={this.state.lookAtStoredCards}
                 storedCardIds={this.state.storedCardIds}
+                removeFromPage={this.removeCardFromPage}
               />
             </section>
           </div>
@@ -118,8 +125,7 @@ class App extends Component {
     return (
       <div className="app">
         <div className="top-right">
-          <p className="account">Account</p>
-          <button className="study-hub" onClick={() => this.handleState()}>
+          <button className="study-hub" onClick={() => this.storeCard()}>
             My Study Hub
           </button>
         </div>
