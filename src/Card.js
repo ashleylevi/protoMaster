@@ -155,9 +155,9 @@ export default class Card extends Component {
             )}
           </div>
           <div>
-            // <button className="next-button" onClick={this.resetState}>
-            //   Next Question
-            // </button>
+            <button className="next-button" onClick={this.resetState}>
+              Next Question
+           </button>
           </div>
         </div>
       );

@@ -57,19 +57,6 @@ class App extends Component {
 
   }
 
-
-    // let index = cardsFromStorage.indexOf(card);
-    // cardsFromStorage.splice(index, 1);
-    // this.setState({
-    //   storedCardIds: cardsFromStorage
-    // })
-    //  localStorage.setItem("clickedCard", JSON.stringify(cardsFromStorage))
-
-
-
-
-
-
   render() {
     if (this.state.lookAtStoredCards === true) {
       return (
@@ -96,7 +83,6 @@ class App extends Component {
             </button>
           </div>
           <div className="main-card">
-            <section className="cards">
               <CardContainer
                 allCards={this.state.allCards}
                 count={this.state.counter}
@@ -106,21 +92,10 @@ class App extends Component {
                 storedCardIds={this.state.storedCardIds}
                 removeCardFromPage={this.removeCardFromPage}
               />
-            </section>
           </div>
         </div>
       );
     }
-
-      // removeCard = (card) => {
-  //   let cardsFromStorage = JSON.parse(localStorage.getItem("clickedCard"));
-  //   let index = cardsFromStorage.indexOf(card);
-  //   cardsFromStorage.splice(index, 1);
-  //   this.setState({
-  //     storedCardIds: cardsFromStorage
-  //   })
-  //    localStorage.setItem("clickedCard", JSON.stringify(cardsFromStorage))
-  //  }
 
     return (
       <div className="app">
@@ -146,7 +121,6 @@ class App extends Component {
           </button>
         </div>
         <div className="main-card">
-          <section className="cards">
             <CardContainer
               allCards={this.state.allCards}
               count={this.state.counter}
@@ -155,7 +129,6 @@ class App extends Component {
               lookAtStoredCards={this.state.lookAtStoredCards}
               storedCardIds={this.state.storedCardIds}
             />
-          </section>
         </div>
       </div>
     );
