@@ -70,3 +70,21 @@ span {
 .pro {
   font-style: italic;
 }
+
+.study-hub {
+  margin-top: 20px;
+  height: 50px;
+  background-color: #8FBA53;
+  color: white;
+  border-color: white;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 13px;
+  transition: .3s;
+
+    &:hover {
+      filter: brightness(115%);
+      transform: scale(1.2);
+  }
+}
