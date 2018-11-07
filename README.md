@@ -16,6 +16,11 @@ Features of the application include:
 ![ProtoMaster screenshot 2](images/protomaster2.png)
 
 
+### Original Wireframe:
+
+![ProtoMaster screenshot 3](images/protowireframe.png)
+
+
 ### Additional Development:
 * Add functionality to search for prototype questions based on type.
 * User prompting that tracks the amount of incorrect vs correct answers per quiz.
