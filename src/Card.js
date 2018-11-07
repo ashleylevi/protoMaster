@@ -48,10 +48,9 @@ export default class Card extends Component {
   }
 
   storeCard = card => {
-    document.querySelector('.card-wrapper').classList.add('add-animation')
-    console.log("clicked card:", card);
+    this.handleWiggle()
     let storedCards = [];
-    if (JSON.parse(localStorage.getItem("clickedCard"))) {
+    if (JSON.parse(localStorage.getItem("clickedCard")) && !JSON.parse(localStorage.getItem("clickedCard")).includes(card)) {
       storedCards = JSON.parse(localStorage.getItem("clickedCard"));
       storedCards.push(card);
       localStorage.setItem("clickedCard", JSON.stringify(storedCards));
@@ -79,6 +78,16 @@ export default class Card extends Component {
     this.props.removeCardFromPage(nullFreeArray)
     document.querySelector('.card-wrapper').classList.add('add-animation')
   };
+
+  handleWiggle = () => {
+    window.clearTimeout()
+    this.toggleWiggle()
+    setTimeout(this.toggleWiggle, 500)
+  }
+
+  toggleWiggle = () => {
+    document.querySelector('.card-wrapper').classList.toggle('moving')
+  }
 
 
   render() {

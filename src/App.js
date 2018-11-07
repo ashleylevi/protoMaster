@@ -58,6 +58,13 @@ class App extends Component {
   };
 
   render() {
+    let numberOfStudyCards = (
+      <a className="plus" data-tooltip="Add this question to your study hub!">
+        <i class="fas fa-plus" onClick={() => this.storeCard(this.props.card.id)}/>
+      </a>
+    );
+    
+
     if (this.state.lookAtStoredCards === true) {
       return (
         <div className="app">
@@ -122,6 +129,7 @@ class App extends Component {
           </button>
         </div>
         <div className="main-card">
+        <p className="study-hub-title">QUESTION: <span className="num">{this.state.counter + 1}</span> of <span className="num">30</span></p>
           <CardContainer
             allCards={this.state.allCards}
             count={this.state.counter}
