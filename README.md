@@ -1,44 +1,37 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# **ProtoMaster**
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+*ProtoMaster* is a web based application built in React that uses a custom built API to faciliate education on array prototype methods in JavaScript. The application was designed as a study tool for users who need supplemental material to assist them in their learning.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Features of the application include: 
+* A quiz on various topics related to array prototype methods.
+* Correct/Incorrect answer validation.
+* The ability to save incorrect questions to restudy at a later time.
+* The ability to delete questions that were previously saved.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+![ProtoMaster screenshot 1](https://www.flickr.com/photos/143000488@N05/30818787497/in/dateposted-public/)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![ProtoMaster screenshot 2](https://www.flickr.com/photos/143000488@N05/44845327925/in/dateposted-public/)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Additional Development:
+* Add functionality to search for prototype questions based on type.
+* User prompting that tracks the amount of incorrect vs correct answers per quiz.
+* Improve UI styling.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### Installation and Setup Instructions
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Clone down this repository.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. cd into directory.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+3. Run `npm install` in terminal.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+4. Run `npm start` in terminal to start server.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
