@@ -30,7 +30,7 @@ class App extends Component {
   };
 
 
-  switchQuestion = event => {
+  switchQuestion = (event) => {
     if (this.state.counter > 28) {
       this.setState({
         counter: (this.state.counter = 0)
@@ -42,8 +42,7 @@ class App extends Component {
     }
   };
 
-  storeCard = storedCards => {
-    console.log("hi");
+  storeCard = () => {
     var storedCards = JSON.parse(localStorage.getItem("clickedCard"));
     this.setState({
       lookAtStoredCards: !this.state.lookAtStoredCards,
@@ -51,20 +50,13 @@ class App extends Component {
     });
   };
 
-  removeCardFromPage = array => {
+  removeCardFromPage = (array) => {
     this.setState({
       storedCardIds: array
     });
   };
 
   render() {
-    let numberOfStudyCards = (
-      <a className="plus" data-tooltip="Add this question to your study hub!">
-        <i class="fas fa-plus" onClick={() => this.storeCard(this.props.card.id)}/>
-      </a>
-    );
-    
-
     if (this.state.lookAtStoredCards === true) {
       return (
         <div className="app">
