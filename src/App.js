@@ -56,7 +56,8 @@ class App extends Component {
   };
 
   render() {
-    if (this.state.lookAtStoredCards === true) {
+
+    if (this.state.lookAtStoredCards === true && this.state.storedCardIds) {
       return (
         <div className="app">
           <div className="top-right">

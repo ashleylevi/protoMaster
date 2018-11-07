@@ -30,7 +30,7 @@ export default function CardContainer(props) {
       );
     }
 
-    if (props.lookAtStoredCards === true) {
+    if (props.lookAtStoredCards === true && props.storedCardIds) {
       return (
         <div>
           <div className="stored-cards">
