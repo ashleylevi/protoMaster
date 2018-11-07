@@ -3,13 +3,9 @@ import Card from "./Card.js";
 import "./styles/main.scss";
 import PropTypes from "prop-types";
 
-export default class CardContainer extends Component {
-  constructor(props) {
-    super(props);
-  }
+export default function CardContainer(props) {
 
-  render() {
-    if (!this.props.allCards.length) {
+    if (!props.allCards.length) {
       return (
         <div>
           <p>Loading</p>
@@ -17,30 +13,30 @@ export default class CardContainer extends Component {
       );
     }
 
-    if (this.props.allCards.length && this.props.lookAtStoredCards === false) {
+    if (props.allCards.length && props.lookAtStoredCards === false) {
       return (
         <div className="cardcontainer-wrapper">
           <div>
             <Card
-              card={this.props.allCards[this.props.count]}
-              switchQuestion={this.props.switchQuestion}
-              checkUserAnswer={this.props.checkUserAnswer}
-              lookAtStoredCards={this.props.lookAtStoredCards}
-              removeCard={this.props.removeCard}
-              removeCardFromPage={this.props.removeCardFromPage}
+              card={props.allCards[props.count]}
+              switchQuestion={props.switchQuestion}
+              checkUserAnswer={props.checkUserAnswer}
+              lookAtStoredCards={props.lookAtStoredCards}
+              removeCard={props.removeCard}
+              removeCardFromPage={props.removeCardFromPage}
             />
           </div>
         </div>
       );
     }
 
-    if (this.props.lookAtStoredCards === true) {
+    if (props.lookAtStoredCards === true) {
       return (
         <div>
           <div className="stored-cards">
-            {this.props.storedCardIds
+            {props.storedCardIds
               .map(id => {
-                return this.props.allCards.filter(card => {
+                return props.allCards.filter(card => {
                   return card.id === id;
                 });
               })
@@ -50,11 +46,11 @@ export default class CardContainer extends Component {
                   <Card
                     card={card}
                     key={card.id}
-                    switchQuestion={this.props.switchQuestion}
-                    checkUserAnswer={this.props.checkUserAnswer}
-                    lookAtStoredCards={this.props.lookAtStoredCards}
-                    removeCard={this.props.removeCard}
-                    removeCardFromPage={this.props.removeCardFromPage}
+                    switchQuestion={props.switchQuestion}
+                    checkUserAnswer={props.checkUserAnswer}
+                    lookAtStoredCards={props.lookAtStoredCards}
+                    removeCard={props.removeCard}
+                    removeCardFromPage={props.removeCardFromPage}
                   />
                 );
               })}
@@ -62,7 +58,6 @@ export default class CardContainer extends Component {
         </div>
       );
     }
-  }
 }
 
 CardContainer.propTypes = {
