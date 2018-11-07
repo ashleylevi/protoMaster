@@ -29,7 +29,6 @@ class App extends Component {
     document.querySelector(".start-button").classList.add("hide");
   };
 
-
   switchQuestion = (event) => {
     if (this.state.counter > 28) {
       this.setState({
@@ -82,7 +81,10 @@ class App extends Component {
             </button>
           </div>
           <div className="main-card">
-          <p className="study-hub-title">MY STUDY QUESTIONS: <span className="num">{this.state.storedCardIds.length}</span></p>
+            <p className="study-hub-title">
+              MY STUDY QUESTIONS:{" "}
+              <span className="num">{this.state.storedCardIds.length}</span>
+            </p>
             <CardContainer
               allCards={this.state.allCards}
               count={this.state.counter}
@@ -121,7 +123,10 @@ class App extends Component {
           </button>
         </div>
         <div className="main-card">
-        <p className="study-hub-title">QUESTION: <span className="num">{this.state.counter + 1}</span> of <span className="num">30</span></p>
+          <p className="study-hub-title">
+            QUESTION: <span className="num">{this.state.counter + 1}</span> of{" "}
+            <span className="num">30</span>
+          </p>
           <CardContainer
             allCards={this.state.allCards}
             count={this.state.counter}

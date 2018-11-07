@@ -45,12 +45,15 @@ export default class Card extends Component {
 
   skipQuestion = () => {
     this.props.switchQuestion();
-  }
+  };
 
   storeCard = (card) => {
-    this.handleWiggle()
+    this.handleWiggle();
     let storedCards = [];
-    if (JSON.parse(localStorage.getItem("clickedCard")) && !JSON.parse(localStorage.getItem("clickedCard")).includes(card)) {
+    if (
+      JSON.parse(localStorage.getItem("clickedCard")) &&
+      !JSON.parse(localStorage.getItem("clickedCard")).includes(card)
+    ) {
       storedCards = JSON.parse(localStorage.getItem("clickedCard"));
       storedCards.push(card);
       localStorage.setItem("clickedCard", JSON.stringify(storedCards));
@@ -60,7 +63,7 @@ export default class Card extends Component {
     }
   };
 
-  removeCard = (card) => {
+  removeCard = card => {
     let cardsFromStorage = JSON.parse(localStorage.getItem("clickedCard"));
     for (let i = 0; i < cardsFromStorage.length; i++) {
       if (cardsFromStorage[i] === card) {
@@ -73,44 +76,56 @@ export default class Card extends Component {
     });
 
     localStorage.setItem("clickedCard", JSON.stringify(nullFreeArray));
-    this.props.removeCardFromPage(nullFreeArray)
+    this.props.removeCardFromPage(nullFreeArray);
   };
 
   handleWiggle = () => {
-    window.clearTimeout()
-    this.toggleWiggle()
-    setTimeout(this.toggleWiggle, 500)
-  }
+    window.clearTimeout();
+    this.toggleWiggle();
+    setTimeout(this.toggleWiggle, 500);
+  };
 
   toggleWiggle = () => {
-    document.querySelector('.card-wrapper').classList.toggle('moving')
-  }
-
+    document.querySelector(".card-wrapper").classList.toggle("moving");
+  };
 
   render() {
     let showResult = this.state.correctAnswer ? "CORRECT!" : "INCORRECT!";
 
     let plusMinusButton = (
       <a className="plus" data-tooltip="Add this question to your study hub!">
-        <i class="fas fa-plus" onClick={() => this.storeCard(this.props.card.id)}/>
+        <i
+          class="fas fa-plus"
+          onClick={() => this.storeCard(this.props.card.id)}
+        />
       </a>
     );
 
     let skipQuestionButton = (
-      <button className="next-button" onClick={this.resetState}> Skip Question</button>
+      <button className="next-button" onClick={this.resetState}>
+        {" "}
+        Skip Question
+      </button>
     );
 
     let nextQuestionButton = (
       <button className="next-button" onClick={this.resetState}>
-        Next Question</button>
-      )
+        Next Question
+      </button>
+    );
 
     if (this.props.lookAtStoredCards === true) {
       plusMinusButton = (
-        <a className="minus" data-tooltip="Remove this question from your study hub!">
-          <i class="fas fa-minus" onClick={() => this.removeCard(this.props.card.id)}/>
+        <a
+          className="minus"
+          data-tooltip="Remove this question from your study hub!"
+        >
+          <i
+            class="fas fa-minus"
+            onClick={() => this.removeCard(this.props.card.id)}
+          />
         </a>
-    );
+      );
 
       skipQuestionButton = "";
       nextQuestionButton = "";
@@ -166,9 +181,7 @@ export default class Card extends Component {
               <p className="show-result">{showResult}</p>
             )}
           </div>
-          <div>
-            {nextQuestionButton}
-          </div>
+          <div>{nextQuestionButton}</div>
         </div>
       );
     }
