@@ -100,7 +100,7 @@ export default class Card extends Component {
     );
 
     let skipQuestionButton = (
-      <button className="next-button" onClick={this.resetState}> Next Question</button>
+      <button className="next-button" onClick={this.resetState}> Skip Question</button>
     );
 
     if (this.props.lookAtStoredCards === true) {
