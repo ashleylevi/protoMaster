@@ -10,10 +10,10 @@ Features of the application include:
 * The ability to save incorrect questions to restudy at a later time.
 * The ability to delete questions that were previously saved.
 
-![ProtoMaster screenshot 1](https://farm2.staticflickr.com/1968/30818787497_68f4447695_t.jpg)
+![ProtoMaster screenshot 1](images/protomaster.png)
 
 
-![ProtoMaster screenshot 2](https://farm5.staticflickr.com/4833/44845327925_19aa58dab1_t.jpg)
+![ProtoMaster screenshot 2](images/protomaster2.png)
 
 
 ### Additional Development:
