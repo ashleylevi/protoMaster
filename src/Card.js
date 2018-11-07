@@ -12,14 +12,14 @@ export default class Card extends Component {
     };
   }
 
-  selectAnswer = e => {
+  selectAnswer = (e) => {
     let answer = e.target.value;
     this.setState({
       selectedAnswer: answer
     });
   };
 
-  checkUserAnswer = answer => {
+  checkUserAnswer = (answer) => {
     if (answer === this.props.card.correctAnswer) {
       this.setState({
         correctAnswer: true
@@ -47,18 +47,16 @@ export default class Card extends Component {
     this.props.switchQuestion();
   }
 
-  storeCard = card => {
+  storeCard = (card) => {
     this.handleWiggle()
     let storedCards = [];
     if (JSON.parse(localStorage.getItem("clickedCard")) && !JSON.parse(localStorage.getItem("clickedCard")).includes(card)) {
       storedCards = JSON.parse(localStorage.getItem("clickedCard"));
       storedCards.push(card);
       localStorage.setItem("clickedCard", JSON.stringify(storedCards));
-      this.props.getStoredCards(storedCards);
     } else {
       storedCards.push(card);
       localStorage.setItem("clickedCard", JSON.stringify(storedCards));
-      this.props.getStoredCards(storedCards);
     }
   };
 
@@ -76,7 +74,6 @@ export default class Card extends Component {
 
     localStorage.setItem("clickedCard", JSON.stringify(nullFreeArray));
     this.props.removeCardFromPage(nullFreeArray)
-    document.querySelector('.card-wrapper').classList.add('add-animation')
   };
 
   handleWiggle = () => {
@@ -91,7 +88,7 @@ export default class Card extends Component {
 
 
   render() {
-    let showResult = this.state.correctAnswer ? "Correct!" : "Incorrect!";
+    let showResult = this.state.correctAnswer ? "CORRECT!" : "INCORRECT!";
 
     let plusMinusButton = (
       <a className="plus" data-tooltip="Add this question to your study hub!">
@@ -103,6 +100,11 @@ export default class Card extends Component {
       <button className="next-button" onClick={this.resetState}> Skip Question</button>
     );
 
+    let nextQuestionButton = (
+      <button className="next-button" onClick={this.resetState}>
+        Next Question</button>
+      )
+
     if (this.props.lookAtStoredCards === true) {
       plusMinusButton = (
         <a className="minus" data-tooltip="Remove this question from your study hub!">
@@ -111,6 +113,7 @@ export default class Card extends Component {
     );
 
       skipQuestionButton = "";
+      nextQuestionButton = "";
     }
 
     if (this.state.clickedSubmit === false) {
@@ -164,9 +167,7 @@ export default class Card extends Component {
             )}
           </div>
           <div>
-            <button className="next-button" onClick={this.resetState}>
-              Next Question
-           </button>
+            {nextQuestionButton}
           </div>
         </div>
       );
@@ -179,7 +180,6 @@ Card.propTypes = {
   key: PropTypes.number.isRequired,
   switchQuestion: PropTypes.func.isRequired,
   checkUserAnswer: PropTypes.func.isRequired,
-  getStoredCards: PropTypes.func.isRequired,
   lookAtStoredCards: PropTypes.func.isRequired,
   removeCard: PropTypes.func.isRequired,
   removeCardFromPage: PropTypes.func.isRequired

@@ -6,16 +6,7 @@ import PropTypes from "prop-types";
 export default class CardContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      storedCards: []
-    };
   }
-
-  getStoredCards = dataFromChild => {
-    this.setState({
-      storedCards: dataFromChild
-    });
-  };
 
   render() {
     if (!this.props.allCards.length) {
@@ -34,7 +25,9 @@ export default class CardContainer extends Component {
               card={this.props.allCards[this.props.count]}
               switchQuestion={this.props.switchQuestion}
               checkUserAnswer={this.props.checkUserAnswer}
-              getStoredCards={this.getStoredCards}
+              lookAtStoredCards={this.props.lookAtStoredCards}
+              removeCard={this.props.removeCard}
+              removeCardFromPage={this.props.removeCardFromPage}
             />
           </div>
         </div>
@@ -59,7 +52,6 @@ export default class CardContainer extends Component {
                     key={card.id}
                     switchQuestion={this.props.switchQuestion}
                     checkUserAnswer={this.props.checkUserAnswer}
-                    getStoredCards={this.getStoredCards}
                     lookAtStoredCards={this.props.lookAtStoredCards}
                     removeCard={this.props.removeCard}
                     removeCardFromPage={this.props.removeCardFromPage}
