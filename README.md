@@ -14,7 +14,7 @@ Features of the application include:
 
 1. Clone down this repository.
 
-2. cd into directory.
+2. `$ cd protoMaster`
 
 3. Run `$ npm install` in terminal.
 
