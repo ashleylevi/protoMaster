@@ -10,6 +10,16 @@ Features of the application include:
 * The ability to save incorrect questions to restudy at a later time.
 * The ability to delete questions that were previously saved.
 
+### Installation and Setup Instructions
+
+1. Clone down this repository.
+
+2. cd into directory.
+
+3. Run `$ npm install` in terminal.
+
+4. Run `$ npm start` in terminal to start server.
+
 ![ProtoMaster screenshot 1](images/protomaster.png)
 
 
@@ -27,15 +37,7 @@ Features of the application include:
 * Improve UI styling.
 
 
-### Installation and Setup Instructions
 
-1. Clone down this repository.
-
-2. cd into directory.
-
-3. Run `npm install` in terminal.
-
-4. Run `npm start` in terminal to start server.
 
 
 
