@@ -20,6 +20,11 @@ Features of the application include:
 
 4. Run `$ npm start` in terminal to start server.
 
+### Additional Development:
+* Add functionality to search for prototype questions based on type.
+* User prompting that tracks the amount of incorrect vs correct answers per quiz.
+* Improve UI styling.
+
 ![ProtoMaster screenshot 1](images/protomaster.png)
 
 
@@ -31,10 +36,7 @@ Features of the application include:
 ![ProtoMaster screenshot 3](images/protowireframe.png)
 
 
-### Additional Development:
-* Add functionality to search for prototype questions based on type.
-* User prompting that tracks the amount of incorrect vs correct answers per quiz.
-* Improve UI styling.
+
 
 
 
