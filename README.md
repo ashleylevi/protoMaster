@@ -12,13 +12,13 @@ Features of the application include:
 
 ### Installation and Setup Instructions
 
-1. Clone down this repository.
+* clone down this repository.
 
-2. CD into repository `$ cd protoMaster`
+* cd into repository `$ cd protoMaster`
 
-3. Run `$ npm install` in terminal.
+* run `$ npm install` in terminal.
 
-4. Run `$ npm start` in terminal to start server.
+* Run `$ npm start` in terminal to start server.
 
 ### Additional Development:
 * Add functionality to search for prototype questions based on type.
